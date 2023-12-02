@@ -1,0 +1,27 @@
+{% extends 'todo_app/main.html' %}
+
+
+{% block content %}
+
+<div class="h1 text-center mt-3 mb-4 pb-3 text-primary">
+    <h1>Login</h1>
+</div>
+<div class="card-body ">
+    <form method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            {{ form.username }}
+            <label class="small mb-1" for="{{ form.username.id_for_label }}"></label>
+        </div>
+        <div class="form-group">
+            {{ form.password }}
+            <label class="small mb-1" for="{{ form.password.id_for_label }}"></label>
+        </div>
+        <input style="margin-top:10px ;" class="btn btn-success text-center" type="submit" value="Login">
+    </form>
+    <hr>
+    <p>Don't have an account? <a href="{% url 'register' %}">Register</a></p>
+</div>
+
+
+{% endblock content %}

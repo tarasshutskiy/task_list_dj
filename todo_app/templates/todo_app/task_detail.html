@@ -1,0 +1,16 @@
+{% extends 'todo_app/main.html' %}
+
+
+{% block content %}
+
+<div class="h1 text-center mt-3 mb-4 pb-3 text-primary">
+    <h1>Task: {{task.title}}</h1>
+</div>
+<div class=" text-center mt-3 mb-4 pb-3 text-primary">
+    <a style='text-decoration:none;' href="{% url 'tasks' %}">&#8592;Go Back</a>
+</div>
+<div class="card-body h1 text-center mt-3 mb-4 pb-3 ">
+    <h4>{{task.description}}</h4>
+</div>
+
+{% endblock %}

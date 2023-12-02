@@ -1,0 +1,32 @@
+{% extends 'todo_app/main.html' %}
+{% block content %}
+
+<div class="h1 text-center mt-3 mb-4 pb-3 text-primary">
+    <h1>Task Update</h1>
+</div>
+<div class=" text-center mt-3 mb-4 pb-3 text-primary">
+    <a style='text-decoration:none;' href="{% url 'tasks' %}">&#8592;Go Back</a>
+</div>
+<div class="card-body">
+    <form method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            {{ form.title }}
+            <label class="small mb-1" for="{{ form.title.id_for_label }}"></label>
+        </div>
+        <div class="form-group">
+            {{ form.description }}
+            <label class="small mb-1" for="{{ form.description.id_for_label }}"></label>
+        </div>
+        <div class="form-check">
+            {{ form.complete }}
+            <label class="small mb-1" for="{{ form.complete.id_for_label }}">Complete</label>
+        </div>
+        <div class="text-center">
+            <input class="btn btn-success " type="submit" value="Submit">
+        </div>
+    </form>
+</div>
+
+
+{% endblock content %}
