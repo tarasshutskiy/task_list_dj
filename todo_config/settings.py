@@ -25,7 +25,7 @@ env = environ.Env(
     DATABASE_HOST=str,
     DATABASE_PORT=str,
 
-    DATABASE_URL=(str)
+    DATABASE_URL=str
 )
 
 
@@ -40,10 +40,10 @@ environ.Env.read_env(BASE_DIR / '.env')
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
-SECRET_KEY = env('SECRET_KEY')
+SECRET_KEY = "django-insecure-z4#siri%@axpwfbzs((&6v4@kh$ryagerl8w1d@80%ihg+g3yt"
 # SECURITY WARNING: don't run with debug turned on in production!
 
-DEBUG = env('DEBUG')
+DEBUG = False
 
 
 ALLOWED_HOSTS = ['.vercel.app', "*"]
@@ -150,7 +150,7 @@ LOGIN_URL = 'login'
 STATIC_URL = '/static/'
 # STATIC_DIR = BASE_DIR / 'static'
 # STATICFILES_DIRS = [STATIC_DIR]
-STATIC_ROOT = BASE_DIR / 'staticfiles_build'/'static'
+STATIC_ROOT = BASE_DIR / 'staticfiles_build'/ 'static'
 
 
 # Default primary key field type
