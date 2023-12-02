@@ -16,14 +16,14 @@ import environ
 
 
 env = environ.Env(
-    DEBUG=(bool),
-    SECRET_KEY=(str),
+    DEBUG=bool,
+    SECRET_KEY=str,
 
-    DATABASE_NAME=(str),
-    DATABASE_USER=(str),
-    DATABASE_PASSWORD=(str),
-    DATABASE_HOST=(str),
-    DATABASE_PORT=(str),
+    DATABASE_NAME=str,
+    DATABASE_USER=str,
+    DATABASE_PASSWORD=str,
+    DATABASE_HOST=str,
+    DATABASE_PORT=str,
 
     DATABASE_URL=(str)
 )
