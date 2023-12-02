@@ -11,19 +11,39 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+import dj_database_url
+import environ
+
+
+env = environ.Env(
+    DEBUG=(bool),
+    SECRET_KEY=(str),
+
+    DATABASE_NAME=(str),
+    DATABASE_USER=(str),
+    DATABASE_PASSWORD=(str),
+    DATABASE_HOST=(str),
+    DATABASE_PORT=(str),
+
+    DATABASE_URL=(str)
+)
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
+environ.Env.read_env(BASE_DIR / '.env')
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-z4#siri%@axpwfbzs((&6v4@kh$ryagerl8w1d@80%ihg+g3yt'
 
+SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+
+DEBUG = env('DEBUG')
 
 
 ALLOWED_HOSTS = ['.vercel.app', "*"]
@@ -75,17 +95,21 @@ WSGI_APPLICATION = 'todo_config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'railway',
-        'USER': 'postgres',
-        'PASSWORD': 'DEE1*GD25G1eD1d5e-F2F4-dB6cAD3AC',
-        'HOST': 'roundhouse.proxy.rlwy.net',
-        'PORT': '27065',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'railway',
+#         'USER': 'postgres',
+#         'PASSWORD': 'DEE1*GD25G1eD1d5e-F2F4-dB6cAD3AC',
+#         'HOST': 'roundhouse.proxy.rlwy.net',
+#         'PORT': '27065',
+#     }
+# }
 
+
+DATABASES = {
+    'default': dj_database_url.parse(env('DATABASE_URL'))
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
