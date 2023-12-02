@@ -1,32 +1,11 @@
 .idea
 idea
-.DS_Store
-.env
-stripe.exe
-
-*.egg-info/
-.installed.cfg
-*.egg
+*.env
+bin/
+lib
 
 dist
 db.sqlite3
 
 venv
 
-__pycache__/
-*/__pycache__/
-*.py[cod]
-.pyc
-*.pyc
-
-!*media/.gitkeep
-media/
-
-
-log/debug.log
-
-build
-doc
-home.rst
-make.bat
-Makefile
